@@ -1,0 +1,217 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+.ativo{
+    display: flex;
+}
+.desativo{
+    display: none;
+}
+body {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    font-family: "Roboto", sans-serif;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+/*
+=================================================================
+HEADER
+=================================================================
+*/
+header {
+    height: 100px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    background-color: #3347b0;
+    padding-inline: 6rem;
+}
+
+.logo-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+}
+
+.bnt-header {
+    cursor: pointer;
+    display: flex;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    border: none;
+    font-size: 1.09rem;
+    font-weight: 500;
+    background-color: transparent;
+}
+
+.bnt-header img {
+    width: 2.8rem;
+}
+
+/*
+=================================================================
+MAIN
+=================================================================
+*/
+main {
+    gap: 1vw;
+}
+.inicio{
+    justify-content: space-between;
+    padding-inline: 6rem;
+    width: 100%;
+}
+
+.apresentacao {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 6vh;
+    width: 35%;
+    font-size: 1.650rem;
+    justify-content: space-between;
+}
+
+.apresentacao img {
+    width: 85%;
+}
+
+.apresentacao h1 {
+    font-weight: 300;
+}
+
+.apresentacao span {
+    color: #3347b0;
+    font-weight: 600;
+}
+
+.estudante {
+    display: flex;
+    align-items: end;
+    /* height: 100%; */
+}
+
+.estudante img {
+    width: 85%;
+}
+
+.cursos {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    /* align-items: end; */
+    justify-content: space-between;
+
+}
+
+.box-curso {
+    height: 45%;
+    width: 100%;
+    cursor: pointer;
+    color: #fff;
+    font-size: 5rem;
+    border: solid 0.5px black;
+    filter: drop-shadow(12px 12px 2px #3347B080);
+    background-color: #3347b0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    font-weight: 500;
+}
+
+.box-curso p {
+    font-size: 4rem;
+}
+
+
+
+/*
+=================================================================
+FOOTER
+=================================================================
+*/
+footer {
+    width: 100vw;
+    background-color: #3347b0;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    padding-inline: 6rem;
+    color: #fff;
+    font-weight: 400;
+    justify-content: space-between;
+}
+
+.contatos ul {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contatos ul li {
+    display: flex;
+    gap: 10px;
+}
+
+.contatos ul li .icon {
+    font-size: 1.2rem;
+}
+
+.contatos ul li:hover {
+    content: "";
+    width: 0;
+}
+
+
+.social {
+    color: #fff;
+    display: flex;
+    gap: 10px;
+}
+
+.fa-brands {
+    position: relative;
+    padding-inline: 9px;
+    padding-block: 8px;
+    border: solid 3px #fff;
+    border-radius: 80%;
+
+}
+
+.fa-brands:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: #3347b0;
+    transition: ease-in 0.3s;
+}
+
+/* @media(min-width: 1480px) {
+.main{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    .box-curso {
+        width: 50%;
+    }
+} */
