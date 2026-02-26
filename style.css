@@ -47,6 +47,7 @@ header {
   justify-content: center;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
   font-weight: 700;
 }
 
@@ -93,7 +94,6 @@ main {
   gap: 6vh;
   width: 35%;
   font-size: 1.65rem;
-  justify-content: space-between;
 }
 
 .apresentacao img {
@@ -185,16 +185,21 @@ footer {
   display: flex;
   gap: 10px;
 }
-
-.fa-brands {
-  position: relative;
-  padding-inline: 9px;
-  padding-block: 8px;
+.circulo {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: solid 3px #fff;
   border-radius: 80%;
 }
+/* .fa-brands {
+  position: relative;
+  
+} */
 
-.fa-brands:hover {
+.circulo:hover {
   cursor: pointer;
   background-color: #fff;
   color: #3347b0;

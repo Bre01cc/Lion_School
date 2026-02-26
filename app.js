@@ -1,5 +1,14 @@
-import { dadoCursoAlunos } from "./service/alunos.js"
 
+/***********************************************************************************************************************
+ * Objetivo: Arquivo responsável pela renderização da página
+ * Data: 25/02/2026
+ * Autor: Breno Oliveira Assis Reis
+ * Versão: 1.0
+ ***********************************************************************************************************************/
+
+//Imports das fuções responsáveis pelas requisições da API
+import { dadoCursoAlunos } from "./service/alunos.js"
+import { dadoCurso } from "./service/alunos.js"
 import { dadosAluno } from "./service/alunos.js"
 
 
@@ -7,6 +16,7 @@ const main = document.querySelector('main');
 
 const header = document.querySelector('header');
 
+//Renderizar o conteudo inicial presente no main
 const carregarInicioMain = async () => {
 
     main.replaceChildren()
@@ -86,11 +96,16 @@ const carregarInicioMain = async () => {
 
 }
 
-const carregarInicioHeader = (tela, cursoId, nome) => {
+//Renderiar o header e alterar o funcionamento do butão voltar de acordo com a tela.
+const carregarInicioHeader = async (tela, cursoId, nome) => {
     header.replaceChildren()
     // DIV LOGO
     const logoHeader = document.createElement('div')
     logoHeader.classList.add('logo-header')
+
+    logoHeader.addEventListener("click",()=>{
+        primeiraTela()
+    })
 
     const logoImg = document.createElement('img')
     logoImg.src = './img/logo-image.png'
@@ -129,7 +144,7 @@ const carregarInicioHeader = (tela, cursoId, nome) => {
     }
     else {
         buttonTexto.textContent = 'Voltar'
-        buttonHeader.addEventListener('click',async () => {
+        buttonHeader.addEventListener('click', async () => {
             await curso(cursoId, nome)
         })
     }
@@ -139,11 +154,13 @@ const carregarInicioHeader = (tela, cursoId, nome) => {
     header.append(logoHeader, buttonHeader)
 }
 
+//Renderiza  header e main
 const primeiraTela = () => {
     carregarInicioMain()
     carregarInicioHeader()
 }
 
+//Rederiza os cards de alunos de um determinado curso
 const curso = async (cursoId, nome) => {
 
     main.replaceChildren()
@@ -224,10 +241,10 @@ const curso = async (cursoId, nome) => {
     main.append(alunos)
 
     carregarInicioHeader(true)
-    console.log(header)
+
 }
 
-
+//Renderiza um card de aluno e suas notas de cada disciplina
 const carregarAluno = async (id_aluno) => {
     main.replaceChildren()
 
@@ -245,7 +262,7 @@ const carregarAluno = async (id_aluno) => {
     alunoP.textContent = dadoAluno.nome
 
     aluno.append(imgAluno, alunoP)
-    
+
 
     const desempenho = document.createElement("div")
     desempenho.classList.add("desempenho")
@@ -262,7 +279,7 @@ const carregarAluno = async (id_aluno) => {
 
         let numeroP = document.createElement("p")
         numeroP.textContent = nota.valor
-       
+
 
         numero.appendChild(numeroP)
 
@@ -275,7 +292,7 @@ const carregarAluno = async (id_aluno) => {
         containerCor.style.height = `${nota.valor}%`
 
         let cor = trocarCorContainer(nota.valor)
-        console.log(cor)
+
         containerCor.style.backgroundColor = cor
 
         containerSombra.appendChild(containerCor)
@@ -293,12 +310,21 @@ const carregarAluno = async (id_aluno) => {
         containerNotas.append(notaDiv)
     })
 
-    carregarInicioHeader(false,dadoAluno.id_curso)
+    const dadosCurso = await dadoCurso()
+    let nomeCurso = ""
+    dadosCurso.forEach(curso => {
+        if (curso.id == dadoAluno.curso_id) {
+            nomeCurso = curso.nome
+        }
+    })
+
+    carregarInicioHeader(false, dadoAluno.curso_id, nomeCurso)
     desempenho.append(containerNotas)
-    infoAluno.append(aluno,desempenho)
+    infoAluno.append(aluno, desempenho)
     main.append(infoAluno)
 }
 
+//Troca a cor do container de acordo com a nota que o aluno tenha na disciplina
 const trocarCorContainer = (valor) => {
     if (valor != undefined && valor != null && valor != "" && !isNaN(valor)) {
         if (valor <= 60 && valor >= 50) {
@@ -318,29 +344,5 @@ const trocarCorContainer = (valor) => {
     }
 
 }
-
-//  <div class="info-aluno">
-//             <div class="aluno">
-//                 <img src="./img/300.jpg" alt="">
-//                 <p>José Matheus da Silva Miranda</p>
-//             </div>
-//             <div class="desempenho">
-//                 <div class="container-notas">
-//                     <div class="nota">
-//                         <div class="numero">
-//                             <p>96</p>
-//                         </div>
-//                         <div class="container-sombra">
-//                             <div class="container-cor"></div>
-//                         </div>
-//                         <div class="materia">
-//                             <p>SOP</p>
-//                         </div> 
-//                     </div>
-
-//                 </div>
-//             </div>
-//         </div>
-
 
 primeiraTela()
