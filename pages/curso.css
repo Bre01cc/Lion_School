@@ -40,6 +40,9 @@
   color: white;
   flex-direction: column;
 }
+.card-aluno p{
+  text-shadow: 2px 5px 8px rgb(27, 26, 36);
+}
 .card-aluno img {
   border-radius: 50%;
 }

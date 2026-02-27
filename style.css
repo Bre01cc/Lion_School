@@ -91,7 +91,7 @@ main {
   display: flex;
   flex-direction: column;
   height: 100%;
-  gap: 6vh;
+  justify-content: space-between;
   width: 35%;
   font-size: 1.65rem;
 }

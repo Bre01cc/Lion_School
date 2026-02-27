@@ -13,10 +13,9 @@
   align-items: center;
   gap: 3vh;
   box-shadow: 0px 0px 10px rgb(98, 98, 98);
-  /* background-color: aqua; */
 }
 .aluno p {
-  font-size: 1.1rem;
+  font-size: 24px;
   text-shadow: 2px 5px 8px rgb(102, 101, 101);
   color: #3347b0;
 }
@@ -72,6 +71,7 @@
 .materia {
   color: #3347b0;
   display: flex;
+  text-shadow: 2px 5px 8px rgb(102, 101, 101);
   align-items: end;
   justify-content: center;
   font-weight: 900;
