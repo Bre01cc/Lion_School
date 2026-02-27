@@ -218,6 +218,7 @@ const curso = async (cursoId, nome) => {
 
 
     const dadosAluno = await dadoCursoAlunos(cursoId)
+    console.log(dadosAluno)
     dadosAluno.forEach(aluno => {
         let cardAluno = document.createElement("div")
         cardAluno.classList.add("card-aluno")

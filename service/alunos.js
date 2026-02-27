@@ -10,14 +10,17 @@
 export const dadoCursoAlunos = async (id_curso) => {
 
     const validar = validarId(id_curso)
+    console.log(validar)
 
-    
     if (validar) {
         const idCurso = Number(id_curso.toFixed(0))
         const url = `https://lion-school-phbo.onrender.com/alunos?curso_id=${idCurso}`
         const response = await fetch(url)
+      
         const data = response.json()
-        if (data.length > 0)
+        console.log(data)
+        console.log(data.length)
+        if (data.catch.length > 0)
             return data
 
         else
@@ -35,12 +38,12 @@ export const dadoCurso = async () => {
     const url = `https://lion-school-phbo.onrender.com/cursos`
     const response = await fetch(url)
     const data = response.json()
-    if (data.length > 0)
+    if (data.catch.length > 0)
         return data
 
     else
         return false
-    
+
 
 }
 
@@ -56,13 +59,13 @@ export const validarId = (id) => {
 export const dadosAluno = async (id_aluno) => {
 
     const validar = validarId(id_aluno)
-   
+
     if (validar) {
         const idAluno = Number(id_aluno.toFixed(0))
         const url = `https://lion-school-phbo.onrender.com/alunos/${idAluno}`
         const response = await fetch(url)
         const data = response.json()
-        if (data.length > 0)
+        if (data.catch.length > 0)
             return data
 
         else
