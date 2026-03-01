@@ -16,8 +16,19 @@ A aplicação é uma página desenvolvida para Lion School que ao selecionar um 
 git clone https://github.com/Bre01cc/Lion_School.git
 ```
 
+## Comandos do teste
+- Instalação:
+```
+npm install --dev-save jest
+```
+- Iniciar teste:
+```
+npm test
+```
+
 ## Imagem da aplicação
 <img width="1896" height="913" alt="image" src="https://github.com/user-attachments/assets/0a951337-8e46-4c93-8ad4-1542b8e61041" />
 
 ## Autor
 [Breno Oliveira](https://www.linkedin.com/in/breno-oliveira-assis-reis-203010351/)
+
